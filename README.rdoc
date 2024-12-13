@@ -1,0 +1,64 @@
+=VulnerableRubyWebsite
+
+
+VulnerableRubyWebsite is a vulnerable Ruby on Rails web app designed to be used for
+testing of security scanners, providing examples of exploitable code and an app that
+can be used for training people on how to exploit or not get exploited on Ruby on Rails
+websites.
+
+
+===Vulnerability List
+
+
+CVE-2014-0130 - Commonly known as the glob routes bug (directory traversal and code execution)
+
+
+... More to come
+
+
+===Install
+
+I am going to suggest that you use my Docker container with everything already installed (ready to run)
+
+If you haven't heard of it before head over to https://www.docker.com and take a look
+
+====Running Docker
+
+Once you have an installed version of docker
+
+1. pull my container - <code>docker pull whithajess/vuln_rails_app</code>
+
+2. <code>sudo docker run -i -p 3000:3000 -t  whithajess/vuln_rails_app /bin/bash</code> - run my container interactively <code>-p 3000:3000</code> makes my container accessable on port 3000 on my host forwarding from port 3000 on the container
+
+3. make rvm usable - <code>source /etc/profile.d/rvm.sh</code>
+
+4. goto the app directory <code>cd /home/VulnerableWebApp</code>
+
+5. tell rvm to use the vulnwebapp gemset(already installed gems) - <code>rvm use ruby-1.9.3-p194@vulnwebapp</code>
+
+6. start up the website on port 3000 <code>rails s</code>
+
+(this is more stuff then i would like and needs a little bit of a cleanup)
+
+====Standard Install
+
+If you would like to install everything yourself
+
+1. pull down the code,
+
+2. install your preffered ruby (tested it with ruby-1.9.3-p194)
+
+3. <code>bundle install</code>
+
+4. <code>rails s</code>
+
+<b>NB:</b> there is a bug installing gems (related to older rails)
+
+<code>rvm reinstall ruby-1.9.3-p194 --disable-binary</code> - fixed this for me
+
+
+===Contributors
+
+Me
+
+.. help me out if you like!
